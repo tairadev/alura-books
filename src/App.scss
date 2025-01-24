@@ -2,33 +2,4 @@
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(90deg, #002f52 35%, #326589);
-  .App-header {
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-.options {
-  display: flex;
-  align-items: center;
-  .option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 16px;
-    height: 100%;
-    padding: 0 5px;
-    cursor: pointer;
-    min-width: 120px;
-  }
-}
-
-.icons {
-  display: flex;
-  align-items: center;
-  .icon {
-    margin-right: 40px;
-  }
 }
