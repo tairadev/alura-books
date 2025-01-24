@@ -1,20 +1,30 @@
-import logo from './logo.svg';
 import './App.scss';
+import Logo from './components/Logo';
+import profile from './assets/images/perfil.svg';
+import basket from './assets/images/sacola.svg';
 
 function App() {
+  const options = ['CATEGORIAS', 'MINHA ESTANTE', 'FAVORITOS'];
+  const icons = [profile, basket];
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Alura</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Logo />
+        <ul className="options">
+          {options.map((item) => (
+            <li key={item} className="option">
+              <p>{item}</p>
+            </li>
+          ))}
+        </ul>
+        <ul className="icons">
+          {icons.map((icon, i) => (
+            <li className="icon">
+              <img src={icon} alt="Ícone" />
+            </li>
+          ))}
+        </ul>
       </header>
     </div>
   );
