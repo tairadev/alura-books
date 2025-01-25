@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Input from '../Input';
-import { books } from './searchInfos';
+import { getBooks } from '../../services/book';
 
 const SearchContainer = styled.section`
   background-image: linear-gradient(90deg, #002f52 35%, #326589 165%);
@@ -49,6 +49,20 @@ const Result = styled.div`
 
 export default function Search() {
   const [foundBooks, setFoundBooks] = useState([]);
+  const [books, setBooks] = useState([]);
+
+  const fetchBooks = async () => {
+    try {
+      const booksAPI = await getBooks();
+      setBooks(booksAPI);
+    } catch (error) {
+      console.error('Erro ao buscar livros:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   return (
     <SearchContainer>

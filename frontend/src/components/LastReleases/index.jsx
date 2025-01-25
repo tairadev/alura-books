@@ -19,15 +19,15 @@ const NewBooksContainer = styled.div`
   cursor: pointer;
 `;
 
-function UltimosLancamentos() {
+function LastReleases() {
   return (
     <LastReleasesContainer>
       <Title color="#eb9b00" fontSize="36px" align="center">
         ÚLTIMOS LANCAMENTOS
       </Title>
       <NewBooksContainer>
-        {books.map((book) => (
-          <img src={book.src} alt={book.name} />
+        {books.map((book, i) => (
+          <img key={i} src={book.src} alt={book.name} />
         ))}
       </NewBooksContainer>
       <RecommendCard
@@ -40,4 +40,4 @@ function UltimosLancamentos() {
   );
 }
 
-export default UltimosLancamentos;
+export default LastReleases;

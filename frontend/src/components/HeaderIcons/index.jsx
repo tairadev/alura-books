@@ -18,7 +18,7 @@ export default function HeaderIcons() {
   return (
     <IconsContainer>
       {icons.map((icon, i) => (
-        <Icon>
+        <Icon key={i}>
           <img src={icon} alt="Ícone" />
         </Icon>
       ))}
