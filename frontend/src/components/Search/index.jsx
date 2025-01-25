@@ -85,7 +85,7 @@ export default function Search() {
       {foundBooks.map((book) => (
         <Result key={book.id}>
           <p>{book.name}</p>
-          <img src={book.src} alt={book.name} />
+          <img src={book.image} alt={book.name} />
         </Result>
       ))}
     </SearchContainer>

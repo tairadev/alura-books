@@ -1,22 +1,7 @@
 [
   {
-    "id": "4",
-    "name": "Entendendo algoritmos",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
-  },
-  {
     "id": "5",
     "name": "Cangaceiro Javascript",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
-  },
-  {
-    "id": "7",
-    "name": "Guia básico de C#",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
-  },
-  {
-    "id": "8",
-    "name": "Guia básico de JavaScript",
     "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
   },
   {
@@ -32,11 +17,6 @@
   {
     "id": "11",
     "name": "Conhecendo o python",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
-  },
-  {
-    "id": "12",
-    "name": "Imersão Alura",
     "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
   }
 ]
