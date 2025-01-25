@@ -1,5 +1,11 @@
 const { Router } = require('express');
-const { getBooks, getSpecificBook } = require('../controllers/book');
+const {
+  getBooks,
+  getSpecificBook,
+  postBook,
+  patchBook,
+  deleteBook,
+} = require('../controllers/book');
 
 const router = Router();
 
@@ -7,20 +13,10 @@ router.get('/', getBooks);
 
 router.get('/:id', getSpecificBook);
 
-router.post('/', (req, res) => {
-  res.send('Post request');
-});
+router.post('/', postBook);
 
-router.patch('/', (req, res) => {
-  res.send('Patch request');
-});
+router.patch('/:id', patchBook);
 
-router.put('/', (req, res) => {
-  res.send('Put request');
-});
-
-router.delete('/', (req, res) => {
-  res.send('Delete request');
-});
+router.delete('/:id', deleteBook);
 
 module.exports = router;
