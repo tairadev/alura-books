@@ -6,6 +6,12 @@ const {
   deleteBookById,
 } = require('../services/book');
 
+function validateId(id) {
+  if (isNaN(Number(id))) {
+    throw new Error('Invalid ID. It must be a number.');
+  }
+}
+
 function getBooks(req, res) {
   try {
     const books = getAllBooks();
@@ -17,24 +23,33 @@ function getBooks(req, res) {
 
 function getSpecificBook(req, res) {
   try {
-    const book = getBookById(req.params.id);
+    validateId(req.params.id);
+    const book = getBookById(Number(req.params.id));
     if (!book) {
       res.status(404).json({ message: 'Book not found' });
+    } else {
+      res.json(book);
     }
-    res.json(book);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res
+      .status(err.message.includes('Invalid ID') ? 400 : 500)
+      .json({ message: err.message });
   }
 }
 
 function postBook(req, res) {
   try {
     const newBook = req.body;
+
+    if (!newBook.name) {
+      return res.status(400).json({ message: 'Name is required' });
+    }
+
     insertBook({
       id: Math.floor(Math.random() * Math.pow(10, 6)).toString(),
       name: newBook.name,
     });
-    res.status(201).send('Book added');
+    res.status(201).json({ message: 'Book added' });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -42,7 +57,8 @@ function postBook(req, res) {
 
 function patchBook(req, res) {
   try {
-    const changes = { id: req.params.id, ...req.body };
+    validateId(req.params.id);
+    const changes = { id: Number(req.params.id), ...req.body };
     const newBook = changeBook(changes);
 
     if (!newBook) {
@@ -51,16 +67,21 @@ function patchBook(req, res) {
 
     res.json(newBook);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res
+      .status(err.message.includes('Invalid ID') ? 400 : 500)
+      .json({ message: err.message });
   }
 }
 
 function deleteBook(req, res) {
   try {
-    deleteBookById(req.params.id);
+    validateId(req.params.id);
+    deleteBookById(Number(req.params.id));
     res.json({ message: 'Book deleted' });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res
+      .status(err.message.includes('Invalid ID') ? 400 : 500)
+      .json({ message: err.message });
   }
 }
 
