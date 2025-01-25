@@ -25,6 +25,28 @@ const Subtitle = styled.h3`
   margin-bottom: 40px;
 `;
 
+const Result = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 4px;
+  p {
+    width: 200px;
+  }
+  img {
+    width: 100px;
+  }
+  &:hover {
+    border: 1px solid white;
+  }
+`;
+
 export default function Search() {
   const [foundBooks, setFoundBooks] = useState([]);
 
@@ -38,7 +60,7 @@ export default function Search() {
           const { value } = e.target;
           if (value) {
             const filteredBooks = books.filter((book) =>
-              book.nome.toLowerCase().includes(value.toLowerCase())
+              book.name.toLowerCase().includes(value.toLowerCase())
             );
             setFoundBooks(filteredBooks);
           } else {
@@ -46,7 +68,12 @@ export default function Search() {
           }
         }}
       />
-      <pre>{JSON.stringify(foundBooks)}</pre>
+      {foundBooks.map((book) => (
+        <Result key={book.name}>
+          <p>{book.name}</p>
+          <img src={book.src} alt={book.name} />
+        </Result>
+      ))}
     </SearchContainer>
   );
 }
