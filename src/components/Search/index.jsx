@@ -8,8 +8,8 @@ const SearchContainer = styled.section`
   color: #fff;
   text-align: center;
   padding: 85px 0;
-  height: 270px;
   width: 100%;
+  overflow: hidden;
 `;
 
 const Title = styled.h2`
@@ -69,7 +69,7 @@ export default function Search() {
         }}
       />
       {foundBooks.map((book) => (
-        <Result key={book.name}>
+        <Result key={book.id}>
           <p>{book.name}</p>
           <img src={book.src} alt={book.name} />
         </Result>
