@@ -1,22 +1,17 @@
 [
   {
-    "id": "5",
-    "name": "Cangaceiro Javascript",
-    "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
-  },
-  {
     "id": "9",
     "name": "Código Limpo",
     "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
   },
   {
-    "id": "10",
-    "name": "JavaScript para iniciantes",
+    "id": "11",
+    "name": "Conhecendo o python",
     "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
   },
   {
-    "id": "11",
-    "name": "Conhecendo o python",
+    "id": "4",
+    "name": "Entendendo algoritmos",
     "image": "https://images-na.ssl-images-amazon.com/images/I/41J1J6xv8-L._SX258_BO1,204,203,200_.jpg"
   }
 ]

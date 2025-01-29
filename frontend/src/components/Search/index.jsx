@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Input from '../Input';
 import { getBooks } from '../../services/book';
+import { addFavorite } from '../../services/favorite';
 
 const SearchContainer = styled.section`
   background-image: linear-gradient(90deg, #002f52 35%, #326589 165%);
@@ -60,6 +61,15 @@ export default function Search() {
     }
   };
 
+  async function insertFavorite(id) {
+    try {
+      await addFavorite(id);
+      alert(`Livro de id ${id} adicionado aos favoritos!`);
+    } catch (error) {
+      console.error('Erro ao adicionar favorito:', error);
+    }
+  }
+
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -83,7 +93,7 @@ export default function Search() {
         }}
       />
       {foundBooks.map((book) => (
-        <Result key={book.id}>
+        <Result key={book.id} onClick={() => insertFavorite(book.id)}>
           <p>{book.name}</p>
           <img src={book.image} alt={book.name} />
         </Result>

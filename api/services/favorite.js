@@ -10,7 +10,7 @@ function deleteFavoriteById(id) {
   const currentFavorites = getAllFavorites();
 
   const filteredFavorites = currentFavorites.filter(
-    (favorite) => favorite.id !== id
+    (favorite) => favorite.id !== String(id)
   );
 
   fs.writeFileSync(
